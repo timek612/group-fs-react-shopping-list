@@ -1,10 +1,17 @@
-import React from 'react';
+
+
+
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+
 import Header from '../Header/Header.jsx'
 import './App.css';
-import axios from 'axios';
+
+
 
 
 function App() {
+
 
     const handleReset = () => {
         axios({
@@ -27,6 +34,29 @@ function App() {
             console.log(err);
         })
     }
+
+
+    let [itemList, setItemList] = useState([]);
+    
+    
+    useEffect(() => {
+        console.log('effect triggered');
+        getItems();
+      }, [])
+   
+    const getItems = () => {
+        console.log('in get students');
+
+        axios({
+            method: 'GET',
+            url: '/items'
+        }).then (response => {
+            setItemList(response.data)
+        }).catch (err => {
+            console.log(err);
+        })
+    }
+    console.log(itemList);
 
     return (
         <div className="App">
