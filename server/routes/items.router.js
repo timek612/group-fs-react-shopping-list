@@ -17,5 +17,20 @@ router.put('/', (req, res)=>{
       })
 })
 
+router.delete('/', (req, res)=>{
+  const sqlText = `
+    DELETE FROM "items";`;
+
+  pool.query(sqlText)
+      .then((result) => {
+          console.log('Deleted all items!');
+          res.sendStatus(200);
+      })
+      .catch((error) => {
+          console.log(`Error making database query ${sqlText}`, error);
+          res.sendStatus(500);
+      })
+})
+
 
 module.exports = router;
