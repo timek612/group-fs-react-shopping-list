@@ -2,6 +2,37 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
 
+
+router.put('/', (req, res)=>{
+  const sqlText = `
+    UPDATE "items"
+    SET "ispurchased" = FALSE;`;
+  pool.query(sqlText)
+      .then((result) => {
+          console.log('Reset items');
+          res.sendStatus(200);
+      })
+      .catch((error) => {
+          console.log(`Error making database query ${sqlText}`, error);
+          res.sendStatus(500);
+      })
+})
+
+router.delete('/', (req, res)=>{
+  const sqlText = `
+    DELETE FROM "items";`;
+
+  pool.query(sqlText)
+      .then((result) => {
+          console.log('Deleted all items!');
+          res.sendStatus(200);
+      })
+      .catch((error) => {
+          console.log(`Error making database query ${sqlText}`, error);
+          res.sendStatus(500);
+      })
+    })
+
 router.get('/', (req, res) => {
     const queryText = `
     SELECT * FROM "items"
@@ -16,6 +47,7 @@ router.get('/', (req, res) => {
         console.log(err);
         res.sendStatus(500);
     })
+
 })
 
 
