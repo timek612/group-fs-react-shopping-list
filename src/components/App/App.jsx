@@ -26,7 +26,7 @@ function App() {
             console.log(err);
         })
     }
-    
+    console.log(itemList);
     return (
         <div className="App">
             <Header />
