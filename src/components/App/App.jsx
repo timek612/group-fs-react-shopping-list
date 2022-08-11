@@ -5,6 +5,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 import Header from '../Header/Header.jsx'
+import GroceryForm from '../GroceryForm/GroceryForm'
 import './App.css';
 
 
@@ -62,10 +63,14 @@ function App() {
         <div className="App">
             <Header />
             <main>
+
+                <GroceryForm />
+
                 <p>Under Construction...</p>
                 <h2>Shopping List</h2>
                 <button onClick={handleReset}>Reset</button> 
                 <button onClick={handleDeleteAll}>Clear</button>
+
             </main>
         </div>
     );
