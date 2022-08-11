@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Header from '../Header/Header.jsx'
+import GroceryForm from '../GroceryForm/GroceryForm'
 import './App.css';
 
 
@@ -9,7 +10,7 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <p>Under Construction...</p>
+                <GroceryForm />
             </main>
         </div>
     );
