@@ -22,6 +22,7 @@ function App() {
             url: '/items'
         }).then(response => {
             console.log(response)
+            getItems();
         }).catch(err => {
             console.log(err);
         })
@@ -33,6 +34,7 @@ function App() {
             url: '/items'
         }).then(response => {
             console.log(response)
+            getItems();
         }).catch(err => {
             console.log(err);
         })
