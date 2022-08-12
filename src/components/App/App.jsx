@@ -25,7 +25,9 @@ function App() {
             data: newItem
         }).then(response => {
             console.log(response)
+
             getItems();
+
         }).catch(err => {
             console.log(err)
             alert('not posting')
