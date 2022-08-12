@@ -1,19 +1,22 @@
-
-function ItemsOut({itemList}) {
+import ItemComponents from "../ItemComponents/ItemComponents"
+function ItemsOut({ itemList }) {
+    
+    console.log('looping');
     return (
         <>
-        {
-            itemList.map(item => (
-            <div className="itemDiv" key={item.id}>
-                <p>{itemList && item.name}</p>
-                <p>{itemList && item.quantity}<> </>
-                {itemList && item.unit}</p>
-                <p><button>Purchase</button></p>
-                <p><button>Remove</button></p>
-            </div>)
+            {
+                itemList.map(item => (
+                    <ItemComponents key={item.id}
+                    keyid={item.id}
+                     ispurchased={item.ispurchased}
+                      name={item.name}
+                      unit={item.unit}
+                      quantity={item.quantity}
+                       />
+                    )
                 )
-        }
-        </>    
+            }
+        </>
     )
 
 }

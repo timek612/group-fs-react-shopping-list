@@ -50,5 +50,22 @@ router.get('/', (req, res) => {
 
 })
 
+router.put('/:id', (req, res) => {
+    const id = req.params.id;
+    let queryText = `
+    UPDATE "items"
+    SET "ispurchased" = TRUE
+    WHERE "id" = $1;
+    `;
+
+    pool.query(queryText, [id])
+    .then((result) => {
+        res.sendStatus(200)
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+
+})
 
 module.exports = router;
