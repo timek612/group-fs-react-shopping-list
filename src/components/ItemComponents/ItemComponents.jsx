@@ -31,6 +31,7 @@ function ItemComponents({ getItems, keyid, ispurchased, name, quantity, unit }) 
         })
     }
     
+    if (ispurchased === false){
     return (
         <div className="itemDiv">
             <p>{name}</p>
@@ -40,6 +41,18 @@ function ItemComponents({ getItems, keyid, ispurchased, name, quantity, unit }) 
             <p><button onClick={() =>deleteItem(keyid)}>Remove</button></p>
         </div>
     )
+    }
+    if (ispurchased === true) {
+        return (
+            <div className="itemDivPurchased">
+                <p>{name}</p>
+                <p>{quantity}<> </>
+                    {unit}</p>
+                <p>Purchased</p>
+                <p><button onClick={() =>deleteItem(keyid)}>Remove</button></p>
+            </div>
+        )
+    }
 }
 
 export default ItemComponents
