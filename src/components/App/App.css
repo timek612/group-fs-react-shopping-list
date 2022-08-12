@@ -27,3 +27,9 @@ p {
   border-radius: 5px;
   padding: 10px;
 }
+
+#flexBox {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}

@@ -91,7 +91,9 @@ function App() {
                 <button onClick={handleDeleteAll}>Clear</button>
 
             </main>
-            <ItemsOut getItems={getItems} itemList={itemList} />
+            <div id="flexBox">
+                <ItemsOut getItems={getItems} itemList={itemList} />
+            </div>
         </div>
     );
 }

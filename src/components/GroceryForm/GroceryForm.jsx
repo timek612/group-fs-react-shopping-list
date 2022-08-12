@@ -11,7 +11,7 @@ import axios from "axios";
 function GroceryForm({ addItem }) {
 
     const [item, setItem] = useState({ item: "" })
-    const [quantity, setQuantity] = useState({ quantity: 0 })
+    const [quantity, setQuantity] = useState({ quantity: '' })
     const [unit, setUnit] = useState({ unit: "" })
 
     console.log('item is,', item.item, quantity.quantity, unit.unit)
