@@ -17,6 +17,17 @@ function App() {
     const addItem = (newItem) => {
         console.log(newItem);
         console.log('adding items');
+        axios({
+            method: 'POST',
+            url: '/items',
+            data: {
+
+            }
+        }).then(response => {
+            console.log(response)
+        }).catch(err => {
+            console.log(err)
+        })
     }
 
 
@@ -52,7 +63,7 @@ function App() {
     }, [])
 
     const getItems = () => {
-        console.log('in get students');
+        console.log('in get items');
 
         axios({
             method: 'GET',
