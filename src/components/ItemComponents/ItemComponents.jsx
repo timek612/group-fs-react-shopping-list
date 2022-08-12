@@ -1,9 +1,9 @@
 import axios from "axios";
 
-function ItemComponents({ keyid, ispurchased, name, quantity, unit }) {
+function ItemComponents({ getItems, keyid, ispurchased, name, quantity, unit }) {
     
     const purchaseItem = (key) => {
-        console.log('puchasing item');
+        console.log('clicked');
 
         axios ({
             method: 'PUT',
@@ -11,8 +11,22 @@ function ItemComponents({ keyid, ispurchased, name, quantity, unit }) {
         })
         .then(response => {
             console.log(response);
+            getItems();
         })
         .catch(err => {
+            console.log(err);
+        })
+    }
+
+    const deleteItem = (key) => {
+
+        axios ({
+            method: 'DELETE',
+            url: `/items/${key}`
+        }).then(result =>{
+            console.log(result);
+            getItems();
+        }).catch(err =>{
             console.log(err);
         })
     }
@@ -22,8 +36,8 @@ function ItemComponents({ keyid, ispurchased, name, quantity, unit }) {
             <p>{name}</p>
             <p>{quantity}<> </>
                 {unit}</p>
-            <p><button onClick={purchaseItem(keyid)}>Purchase</button></p>
-            <p><button>Remove</button></p>
+            <p><button onClick={() =>purchaseItem(keyid)}>Purchase</button></p>
+            <p><button onClick={() =>deleteItem(keyid)}>Remove</button></p>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import ItemComponents from "../ItemComponents/ItemComponents"
-function ItemsOut({ itemList }) {
+function ItemsOut({ getItems, itemList }) {
     
     console.log('looping');
     return (
@@ -7,6 +7,7 @@ function ItemsOut({ itemList }) {
             {
                 itemList.map(item => (
                     <ItemComponents key={item.id}
+                    getItems={getItems}
                     keyid={item.id}
                      ispurchased={item.ispurchased}
                       name={item.name}
