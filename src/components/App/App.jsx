@@ -22,13 +22,13 @@ function App() {
         axios({
             method: 'POST',
             url: '/items',
-            data: {
-
-            }
+            data: newItem
         }).then(response => {
             console.log(response)
+            getItems();
         }).catch(err => {
             console.log(err)
+            alert('not posting')
         })
     }
 
