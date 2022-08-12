@@ -16,3 +16,14 @@ main {
 p {
   text-align: center;
 }
+
+.itemDivPurchased {
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+  display: inline block;
+  margin: 6px;
+  background-color: rgb(114, 222, 114);
+  border-radius: 5px;
+  padding: 10px;
+}

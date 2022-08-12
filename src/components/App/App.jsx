@@ -77,7 +77,6 @@ function App() {
             console.log(err);
         })
     }
-    console.log(itemList);
 
 
     return (
@@ -87,23 +86,12 @@ function App() {
 
                 <GroceryForm addItem={addItem} />
 
-                <p>Under Construction...</p>
                 <h2>Shopping List</h2>
                 <button onClick={handleReset}>Reset</button>
                 <button onClick={handleDeleteAll}>Clear</button>
 
             </main>
-            {/* <table>
-                <thead>
-                    <th>Name</th>
-                    <th>Quantity</th>
-                    <th>Unit</th>
-                </thead>
-                <tbody>
-                    
-                </tbody>
-            </table> */}
-            <ItemsOut itemList={itemList} />
+            <ItemsOut getItems={getItems} itemList={itemList} />
         </div>
     );
 }
