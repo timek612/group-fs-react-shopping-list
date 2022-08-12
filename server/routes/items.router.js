@@ -3,6 +3,23 @@ const router = express.Router();
 const pool = require('../modules/pool.js');
 
 
+router.post('/', (req, res)=> {
+    console.log('req.body is', req.body)
+    
+    const package=req.body
+    const sqlText=`
+    INSERT INTO "items" ("name", "quantity", "unit")
+    VALUES ($1, $2, $3);`;
+
+    pool.query(sqlText, [package.item, package.quantity, package.unit])
+        .then( (result) => {
+            res.sendStatus(210)
+        }).catch( (err) =>{
+            console.log('error in making db query')
+            res.sendStatus(500)
+        })
+})
+
 router.put('/', (req, res)=>{
   const sqlText = `
     UPDATE "items"
