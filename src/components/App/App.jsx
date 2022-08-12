@@ -7,12 +7,14 @@ import axios from 'axios';
 import Header from '../Header/Header.jsx'
 import GroceryForm from '../GroceryForm/GroceryForm'
 import './App.css';
+import ItemsOut from '../ItemsOut/ItemsOut.jsx';
 
 
 
 
 function App() {
 
+    let [itemList, setItemList] = useState([]);
 
     const addItem = (newItem) => {
         console.log(newItem);
@@ -54,9 +56,6 @@ function App() {
     }
 
 
-    let [itemList, setItemList] = useState([]);
-
-
     useEffect(() => {
         console.log('effect triggered');
         getItems();
@@ -90,6 +89,17 @@ function App() {
                 <button onClick={handleDeleteAll}>Clear</button>
 
             </main>
+            {/* <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Unit</th>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table> */}
+            <ItemsOut itemList={itemList} />
         </div>
     );
 }
